@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+
+.bg-img {
+  background-image: url(./images/bg-img.png);
+}
+
+.heading-box {
+  border-bottom: 1rem ridge rgb(251, 0, 90);
+  color: rgb(251, 0, 90);
+}
+
+.heading-text {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.bank-account {
+  height: 57px;
+  border-radius: 28.5px;
+  background-color: rgb(169, 255, 118);
+}
+
+.team-box {
+  height: 64px;
+  border-radius: 28.5px;
+  background-color: #000;
+  color: #fff;
+}
+
+
+
+/* FONT CLASSES */
+
+.nico-font {
+  font-family: 'Nico Moji', 'Times New Roman', Times, serif;
+}
