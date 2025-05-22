@@ -23,3 +23,25 @@ const players = [
   { teamNumber: 2, emoji: '🐅', skill: 100, name: "Tiger" },
 ];
 
+drawTeam1();
+drawTeam2();
+
+function drawTeam1() {
+  const teamOneElm = document.getElementById('team-one');
+  let teamContent = '';
+  let teamPlayers = players.filter((player) => player.teamNumber == 1);
+  //console.log(teamPlayers);
+  teamPlayers.forEach((player) => teamContent += player.emoji);
+  teamOneElm.innerText = teamContent;
+  //console.log(teamContent);
+}
+
+function drawTeam2() {
+  const teamTwoElm = document.getElementById('team-two');
+  let teamContent = '';
+  let teamPlayers = players.filter((player) => player.teamNumber = 2);
+  teamPlayers.forEach((player) => teamContent += player.emoji);
+  teamTwoElm.innerText = teamContent;
+  //console.log(teamContent); 
+}
+

@@ -12,7 +12,9 @@
   <script src="./script.js" defer></script>
   <title>Extremely Realistic Sports Bets</title>
 </head>
+
 <body class="bg-img nico-font">
+  <!-- SECTION: Heading -->
   <header class="container-fluid heading-box">
     <div class="row">
       <div class="col-12">
@@ -20,7 +22,9 @@
       </div>
     </div>
   </header>
+  <!-- !SECTION -->
   <main>
+    <!-- SECTION: Bank Account -->
     <section class="container">
       <div class="row">
         <!-- BANK ACCOUNT -->
@@ -33,6 +37,8 @@
           </div>
         </div>
       </div>
+    </section>
+    <section class="container">
       <div class="row mt-3 d-flex justify-content-center">
         <div class="col-6">
           <div class="text-center">
@@ -51,29 +57,36 @@
           </div>
         </div>
       </div>
+    </section>
+    <!-- !SECTION -->
+    <!-- SECTION: BUTTON SECTION-->
+    <section class="container">
       <div class="row">
+        <!--NOTE Team 1 buttons-->
         <div class="col-6">
-          <div class="row mt-3">
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(5)">Bet 5</button>
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(25)">Bet 25</button>
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(100)">Bet 100</button>
+          <div class="row mt-3 me-2">
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button1" onclick="placeBet(1, 5)">Bet 5</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button1" onclick="placeBet(1, 25)">Bet 25</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button1" onclick="placeBet(1, 100)">Bet 100</button>
           </div>
           <div class="row d-flex justify-content-center mt-3">
-            <button class="col-4 badge rounded-pill py-3"onclick="placeBet()">Bet it all</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button1"onclick="allIn(1)">Bet it all</button>
           </div>
         </div>
+        <!--NOTE Team 2 Buttons-->
         <div class="col-6">
-          <div class="row mt-3">
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(5)">Bet 5</button>
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(25)">Bet 25</button>
-            <button class="col-4 badge rounded-pill py-3" onclick="placeBet(100)">Bet 100</button>
+          <div class="row mt-3 ms-2">
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button2" onclick="placeBet(2, 5)">Bet 5</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button2" onclick="placeBet(2, 25)">Bet 25</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button2" onclick="placeBet(2, 100)">Bet 100</button>
           </div>
           <div class="row d-flex justify-content-center mt-3">
-            <button class="col-4 badge rounded-pill py-3"onclick="placeBet()">Bet it all</button>
+            <button class="col-4 badge fs-4 rounded-pill py-3 bet-button2"onclick="allIn(2)">Bet it all</button>
           </div>
         </div>
       </div>
     </section>
+    <!-- !SECTION -->
   </main>
 </body>
 </html>
