@@ -45,21 +45,20 @@ function draftTeams() {
   drawTeams();
 }
 
-function drawBank() {
-  let bankElm = document.getElementById('bank-account');
-  bankElm.innerText = '$' + bank;
-  if (bank == 0) {
-    alert(`You're Out of Money! Hit the ATM and Try Again!`);
-    reset();
-  }
-}
-
 function reset() {
   bank = 100;
   draftTeams();
   drawBank();
 }
 
+function drawBank() {
+  const bankElm = document.getElementById('bank-account');
+  bankElm.innerText = '$' + bank;
+  if (bank == 0) {
+    alert(`You're Out of Money! Hit the ATM and Try Again!`);
+    reset();
+  }
+}
 
 function betTeam1(num) {
   let teamOneSkill = 0;
@@ -82,6 +81,7 @@ function betTeam1(num) {
     alert(`Too bad! You lost $${num}`);
   }
   drawBank();
+  draftTeams();
 };
 
 function betTeam2(num) {
