@@ -88,11 +88,10 @@ function placeBet(betTeam, betAmnt) {
 }
 
 function allIn(team) {
-  let num = bank;
   if (team == 1){
-    placeBet(1, num);
+    placeBet(1, bank);
   } else {
-    placeBet(2, num);
+    placeBet(2, bank);
   }
 };
 
