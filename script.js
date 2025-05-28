@@ -1,5 +1,8 @@
 let bank = 100;
 let highScore = 0;
+let betsWon = 0;
+let betsLost = 0;
+
 const players = [
   { teamNumber: 1, emoji: '🏃‍♂️', skill: 10, name: "D'Marcus Williums" },
   { teamNumber: 1, emoji: '🤾‍♂️', skill: 30, name: "Tyroil Smoochie-Wallace" },
@@ -76,16 +79,21 @@ function placeBet(betTeam, betAmnt) {
   });
   if (betTeam == 1 && teamOneSkill > teamTwoSkill) {
     bank += betAmnt;
+    betsWon++;
   } else if (betTeam == 2 && teamOneSkill < teamTwoSkill) {
     bank += betAmnt;
+    betsWon++;
   } else if (betTeam == 1 && teamOneSkill < teamTwoSkill) {
     bank -= betAmnt;
+    betsLost++;
   } else {
     bank -= betAmnt;
+    betsLost++;
   }
   drawBank();
   draftTeams();
   checkScore();
+  drawWins();
 }
 
 function allIn(team) {
@@ -103,3 +111,10 @@ function checkScore() {
     scoreElm.innerText = `$${highScore}`;
   }
 };
+
+function drawWins() {
+  const winsElm = document.getElementById('win-tracker');
+  const lostElm = document.getElementById('lost-tracker');
+  winsElm.innerText = `${betsWon}`;
+  lostElm.innerText = `${betsLost}`;
+}
