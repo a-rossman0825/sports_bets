@@ -34,10 +34,10 @@ function drawTeams() {
   let team2Content = '';
   let team1Players = players.filter((player) => player.teamNumber == 1);
   let team2Players = players.filter((player) => player.teamNumber == 2);
-  team1Players.forEach((player) => team1Content += player.emoji);
-  team2Players.forEach((player) => team2Content += player.emoji);
-  team1Elm.innerText = team1Content;
-  team2Elm.innerText = team2Content;
+  team1Players.forEach((player) => team1Content += `<div class="d-inline" title="${player.skill}">${player.emoji}</div>`);
+  team2Players.forEach((player) => team2Content += `<div class="d-inline" title="${player.skill}">${player.emoji}</div>`);
+  team1Elm.innerHTML = team1Content;
+  team2Elm.innerHTML = team2Content;
 }
 
 function draftTeams() {
