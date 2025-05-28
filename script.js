@@ -54,12 +54,49 @@ function reset() {
 function drawBank() {
   const bankElm = document.getElementById('bank-account');
   bankElm.innerText = '$' + bank;
-  if (bank == 0) {
+  if (bank <= 0) {
     alert(`You're Out of Money! Hit the ATM and Try Again!`);
     reset();
   }
 }
 
+function placeBet(betTeam, betAmnt) {
+  let teamOneSkill = 0;
+  let teamTwoSkill = 0;
+  
+  if (betAmnt > bank) {
+    return alert(`You don't have enough money to make that bet!`);
+  };
+  players.forEach((player) => {
+    if (player.teamNumber == 1) {
+      teamOneSkill += player.skill;
+    } else {
+      teamTwoSkill += player.skill;
+    }
+  });
+  if (betTeam == 1 && teamOneSkill > teamTwoSkill) {
+    bank += betAmnt;
+  } else if (betTeam == 2 && teamOneSkill < teamTwoSkill) {
+    bank += betAmnt;
+  } else if (betTeam == 1 && teamOneSkill < teamTwoSkill) {
+    bank -= betAmnt;
+  } else {
+    bank -= betAmnt;
+  }
+  drawBank();
+  draftTeams();
+}
+
+function allIn(team) {
+  let num = bank;
+  if (team == 1){
+    placeBet(1, num);
+  } else {
+    placeBet(2, num);
+  }
+};
+
+/*
 function betTeam1(num) {
   let teamOneSkill = 0;
   let teamTwoSkill = 0;
@@ -107,14 +144,8 @@ function betTeam2(num) {
   drawBank();
   draftTeams();
 };
+*/
 
-function allIn(team) {
-  let num = bank;
-  if (team == 'team1'){
-    betTeam1(num);
-  } else {
-    betTeam2(num);
-  }
-};
+
 
 
