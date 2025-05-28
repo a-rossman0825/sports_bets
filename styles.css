@@ -20,6 +20,7 @@
 
 .team-box {
   height: 64px;
+  width: max-content;
   border-radius: 28.5px;
   background-color: #000;
   color: #fff;

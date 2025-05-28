@@ -145,7 +145,3 @@ function betTeam2(num) {
   draftTeams();
 };
 */
-
-
-
-
