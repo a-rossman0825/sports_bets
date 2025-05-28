@@ -1,4 +1,4 @@
-let bank = 100
+let bank = 100;
 
 const players = [
   { teamNumber: 1, emoji: '🏃‍♂️', skill: 10, name: "D'Marcus Williums" },
@@ -23,25 +23,98 @@ const players = [
   { teamNumber: 2, emoji: '🐅', skill: 100, name: "Tiger" },
 ];
 
-drawTeam1();
-drawTeam2();
+draftTeams();
+drawBank();
 
-function drawTeam1() {
-  const teamOneElm = document.getElementById('team-one');
-  let teamContent = '';
-  let teamPlayers = players.filter((player) => player.teamNumber == 1);
-  //console.log(teamPlayers);
-  teamPlayers.forEach((player) => teamContent += player.emoji);
-  teamOneElm.innerText = teamContent;
-  //console.log(teamContent);
+
+function drawTeams() {
+  const team1Elm = document.getElementById('team-one');
+  const team2Elm = document.getElementById('team-two');
+  let team1Content = '';
+  let team2Content = '';
+  let team1Players = players.filter((player) => player.teamNumber == 1);
+  let team2Players = players.filter((player) => player.teamNumber == 2);
+  team1Players.forEach((player) => team1Content += player.emoji);
+  team2Players.forEach((player) => team2Content += player.emoji);
+  team1Elm.innerText = team1Content;
+  team2Elm.innerText = team2Content;
 }
 
-function drawTeam2() {
-  const teamTwoElm = document.getElementById('team-two');
-  let teamContent = '';
-  let teamPlayers = players.filter((player) => player.teamNumber = 2);
-  teamPlayers.forEach((player) => teamContent += player.emoji);
-  teamTwoElm.innerText = teamContent;
-  //console.log(teamContent); 
+function draftTeams() {
+  players.forEach((player) => player.teamNumber = Math.ceil(Math.random() * 2));
+  drawTeams();
 }
+
+function drawBank() {
+  let bankElm = document.getElementById('bank-account');
+  bankElm.innerText = '$' + bank;
+  if (bank == 0) {
+    alert(`You're Out of Money! Hit the ATM and Try Again!`);
+    reset();
+  }
+}
+
+function reset() {
+  bank = 100;
+  draftTeams();
+  drawBank();
+}
+
+
+function betTeam1(num) {
+  let teamOneSkill = 0;
+  let teamTwoSkill = 0;
+  if (num > bank) {
+      alert(`You don't have enough money to make that bet!`);
+  }
+  players.forEach((player) => {
+    if (player.teamNumber == 1) {
+      teamOneSkill += player.skill;
+    } else {
+      teamTwoSkill += player.skill;
+    }
+  });
+  if (teamOneSkill > teamTwoSkill) {
+    bank += num;
+    alert(`NICE! YOU WON $${num}!!`);
+  } else {
+    bank -= num;
+    alert(`Too bad! You lost $${num}`);
+  }
+  drawBank();
+};
+
+function betTeam2(num) {
+  let teamOneSkill = 0;
+  let teamTwoSkill = 0;
+  if (num > bank) {
+      alert(`You don't have enough money to make that bet!`);
+  }
+  players.forEach((player) => {
+    if (player.teamNumber == 1) {
+      teamOneSkill += player.skill;
+    } else {
+      teamTwoSkill += player.skill;
+    }
+  });
+  if (teamOneSkill < teamTwoSkill) {
+    bank += num;
+    alert(`NICE! YOU WON $${num}!!`);
+  } else {
+    bank -= num;
+    alert(`Too bad! You lost $${num}`);
+  }
+  drawBank();
+  draftTeams();
+};
+
+function allIn(team) {
+  let num = bank;
+  if (team == 'team1'){
+    betTeam1(num);
+  } else {
+    betTeam2(num);
+  }
+};
+
 

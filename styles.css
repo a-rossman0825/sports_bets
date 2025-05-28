@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
-
 .bg-img {
   background-image: url(./images/bg-img.png);
 }
@@ -38,6 +36,7 @@
 
 
 /* FONT CLASSES */
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
 
 .nico-font {
   font-family: 'Nico Moji', 'Times New Roman', Times, serif;
