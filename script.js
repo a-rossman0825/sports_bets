@@ -1,5 +1,5 @@
 let bank = 100;
-
+let highScore = 0;
 const players = [
   { teamNumber: 1, emoji: '🏃‍♂️', skill: 10, name: "D'Marcus Williums" },
   { teamNumber: 1, emoji: '🤾‍♂️', skill: 30, name: "Tyroil Smoochie-Wallace" },
@@ -85,6 +85,7 @@ function placeBet(betTeam, betAmnt) {
   }
   drawBank();
   draftTeams();
+  checkScore();
 }
 
 function allIn(team) {
@@ -92,5 +93,13 @@ function allIn(team) {
     placeBet(1, bank);
   } else {
     placeBet(2, bank);
+  }
+};
+
+function checkScore() {
+  const scoreElm = document.getElementById('high-score');
+  if (bank > highScore) {
+    highScore = bank;
+    scoreElm.innerText = `$${highScore}`;
   }
 };
